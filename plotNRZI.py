@@ -39,7 +39,7 @@ def NRZI_Code(lista_de_bits: list, nivel_inicial: int):
     
     return lista_transicao
 
-def plotGraph(lista_bits: list):
+def plotGraphNRZI(lista_bits: list):
     listaNivel = [-1, 1] # -1: baixo | 1: alto
     listaNivel_S = ["Negativo", "Positivo"]
     
@@ -62,8 +62,8 @@ def plotGraph(lista_bits: list):
 
 # Teste 1
 lista1bits = [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1]
-plotGraph(lista1bits)
+plotGraphNRZI(lista1bits)
 
 # Teste 2
 lista2bits = [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0]
-plotGraph(lista2bits)
+plotGraphNRZI(lista2bits)
