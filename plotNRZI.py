@@ -41,6 +41,7 @@ def NRZI_Code(lista_de_bits: list, nivel_inicial: int):
 
 def plotGraph(lista_bits: list):
     listaNivel = [-1, 1] # -1: baixo | 1: alto
+    listaNivel_S = ["Negativo", "Positivo"]
     
     # Escolhe um nível inicial aleatório 
     listaTransicao = NRZI_Code(lista_bits, listaNivel[random.randint(0, 1)])
@@ -49,13 +50,13 @@ def plotGraph(lista_bits: list):
     plt.step(range(-1, len(listaTransicao) - 1), listaTransicao, color="blue", where="post")
     
     # Rótulação do gráfico
-    plt.title("NRZI Codificação")
-    plt.xlabel("Tempo (bits)")
+    plt.title("Codificação NRZI")
+    plt.xlabel("Bits")
     plt.ylabel("Nivel do sinal")
 
     plt.xticks(range(len(lista_bits)), lista_bits) # Representação dos bits no eixo x
 
-    plt.yticks(listaNivel) # Representação do nível do sinal no eixo y
+    plt.yticks(listaNivel, listaNivel_S) # Representação do nível do sinal no eixo y
 
     plt.show() # Exibe o gráfico
 
