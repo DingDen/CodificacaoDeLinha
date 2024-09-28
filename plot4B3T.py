@@ -1,16 +1,20 @@
 import matplotlib.pyplot as plt
+from random import randint
 
 def alg4B3T(lista_bits: list):
     lista4B = []
     simbolo = []
     lista3T = []
-    
+
+    #Começo randômico
+    iniciaLizador = randint(-1,1)
     for i in range(len(lista_bits)):
         lista4B.append(lista_bits[i])
 
         if(len(lista4B) == 4):
-            ultimo_simbolo_lista = lista3T[-1] if len(lista3T) > 0 else 1
-            simbolo = tabela_Jesse(lista4B, ultimo_simbolo_lista) #, 0 if i == 0 else lista4B[i-1])
+            #implementação começo randômico
+            ultimo_simbolo_lista = lista3T[-1] if len(lista3T) > 0 and i > 0 else iniciaLizador
+            simbolo = tabela_Jesse(lista4B, ultimo_simbolo_lista)
 
             lista3T.append(simbolo[0])
             lista3T.append(simbolo[1])
