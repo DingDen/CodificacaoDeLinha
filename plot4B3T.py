@@ -15,9 +15,9 @@ def alg4B3T(lista_bits: list):
         if(len(lista4B) == 4):
             # Implementação começo randômico
             # Calcula a diparidade também
-            ultimo_simbolo_lista = ultimo_simbolo_lista + lista3T[-1] if len(lista3T) > 0 and i > 0 else iniciaLizador
-            simbolo = tabela_Jesse(lista4B, ultimo_simbolo_lista)
-
+            contador = contador + lista3T[-1] if len(lista3T) > 0 and i > 0 else iniciaLizador
+            simbolo = tabela_Jesse(lista4B, contador)
+            print(contador)
             lista3T.append(simbolo[0])
             lista3T.append(simbolo[1])
             lista3T.append(simbolo[2])
@@ -27,25 +27,25 @@ def alg4B3T(lista_bits: list):
 
     return lista3T
     
-def tabela_Jesse(lista_bits: list, ultimo_simbolo_lista:int) -> list:
+def tabela_Jesse(lista_bits: list, contador:int) -> list:
     lista_simbolos =  "".join(map(str, lista_bits))
     chaves_simbolos = {
         "0000": [0,-1,1],
         "0001": [-1,1,0],
         "0010": [-1,0,1],
-        "0011": [1,-1,1] if ultimo_simbolo_lista > 0 else [-1,1,-1],
-        "0100": [0,1,1] if ultimo_simbolo_lista > 0 else [0,-1,-1],
-        "0101": [0,1,0] if ultimo_simbolo_lista > 0 else [0,-1,0],
-        "0110": [0,0,1] if ultimo_simbolo_lista > 0 else [0,0,-1],
-        "0111": [-1,1,1] if ultimo_simbolo_lista > 0 else [0,0,-1],
+        "0011": [1,-1,1] if contador  < 0  else [-1,1,-1],'''ultimo_simbolo_lista != 1 or ultimo_simbolo_lista != -1'''
+        "0100": [0,1,1] if contador < 0 else [0,-1,-1],
+        "0101": [0,1,0] if contador < 0 else [0,-1,0],
+        "0110": [0,0,1] if contador < 0 else [0,0,-1],
+        "0111": [-1,1,1] if contador < 0 else [0,0,-1],
         "1000": [0,1,-1],
         "1001": [1,-1,0],
         "1010": [1,0,-1],
-        "1011": [1,0,0] if ultimo_simbolo_lista > 0 else [-1,0,0],
-        "1100": [1,0,1] if ultimo_simbolo_lista > 0 else [-1,0,-1],
-        "1101": [1,1,0] if ultimo_simbolo_lista > 0 else [-1,-1,0],
-        "1110": [1,1,-1] if ultimo_simbolo_lista > 0 else [-1,-1,1],
-        "1111": [1,1,1] if ultimo_simbolo_lista > 0 else [-1,-1,-1],
+        "1011": [1,0,0] if contador < 0 else [-1,0,0],
+        "1100": [1,0,1] if contador < 0 else [-1,0,-1],
+        "1101": [1,1,0] if contador < 0 else [-1,-1,0],
+        "1110": [1,1,-1] if contador < 0 else [-1,-1,1],
+        "1111": [1,1,1] if contador < 0 else [-1,-1,-1],
     }
 
     for chave in chaves_simbolos:
