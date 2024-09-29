@@ -12,7 +12,7 @@ def alg4B3T(lista_bits: list):
         lista4B.append(lista_bits[i])
 
         if(len(lista4B) == 4):
-            #implementação começo randômico
+            # Implementação começo randômico
             ultimo_simbolo_lista = lista3T[-1] if len(lista3T) > 0 and i > 0 else iniciaLizador
             simbolo = tabela_Jesse(lista4B, ultimo_simbolo_lista)
 
@@ -25,7 +25,7 @@ def alg4B3T(lista_bits: list):
 
     return lista3T
     
-def tabela_Jesse(lista_bits: list, ultimo_simbolo_lista:int) -> list:#, ultimo_simbolo_lista:int = 0) -> list:
+def tabela_Jesse(lista_bits: list, ultimo_simbolo_lista:int) -> list: #, ultimo_simbolo_lista:int = 0) -> list:
     lista_simbolos =  "".join(map(str, lista_bits))
     chaves_simbolos = {
         "0000": [0,-1,1],
@@ -53,8 +53,6 @@ def tabela_Jesse(lista_bits: list, ultimo_simbolo_lista:int) -> list:#, ultimo_s
 
 def plotGraph4B3T(lista_bits: list):
     lista4B3T = alg4B3T(lista_bits)
-
-    listaSinal = ["Negativo", "0", "Positivo"] # Conectar depois no lugar de 1, 0 e -1
     
     plt.step(range(len(lista4B3T)), lista4B3T, color="blue", where="post")
 
@@ -63,13 +61,8 @@ def plotGraph4B3T(lista_bits: list):
     
     # Rótulação do gráfico
     plt.title("4B3T Codificação")
-
-    plt.step(range(len(lista4B3T)), lista4B3T, color="blue", where="post")
     
-    # Rótulação do gráfico
-    plt.title("NRZI Codificação")
-
-    plt.xlabel("Tempo (bits)")
+    plt.xlabel("Bits")
     plt.ylabel("Nivel do sinal")
 
     plt.xticks(range(len(lista_bits)), lista_bits) # Representação dos bits no eixo x
@@ -80,5 +73,10 @@ def plotGraph4B3T(lista_bits: list):
 
     plt.show() # Exibe o gráfico
 
-lista1 = [1,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1]
+# Teste 1
+lista1 = [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1]
 plotGraph4B3T(lista1)
+
+# Teste 2
+lista2 = [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0]
+plotGraph4B3T(lista2)

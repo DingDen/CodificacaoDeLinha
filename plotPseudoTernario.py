@@ -34,5 +34,8 @@ bits2 = "1110100101000010"
 sinal1 = pseudoternario(bits1)
 sinal2 = pseudoternario(bits2)
 
+# Teste 1
 plotPseudoternario(bits1, sinal1, 'Codificação Pseudoternária - Sequência 1')
+
+# Teste 2
 plotPseudoternario(bits2, sinal2, 'Codificação Pseudoternária - Sequência 2')

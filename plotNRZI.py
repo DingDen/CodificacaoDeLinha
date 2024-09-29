@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import random
+from random import randint
 
 # 0: sem transição; 1: transição positivo/negativo
 def NRZI_Code(lista_de_bits: list, nivel_inicial: int):
@@ -44,7 +44,7 @@ def plotGraphNRZI(lista_bits: list):
     listaNivel_S = ["Negativo", "Positivo"]
     
     # Escolhe um nível inicial aleatório 
-    listaTransicao = NRZI_Code(lista_bits, listaNivel[random.randint(0, 1)])
+    listaTransicao = NRZI_Code(lista_bits, listaNivel[randint(0, 1)])
     
     # Plot por passo: y se mantém constante até o próximo x, onde ocorre a transição
     plt.step(range(-1, len(listaTransicao) - 1), listaTransicao, color="blue", where="post")
