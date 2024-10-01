@@ -8,16 +8,18 @@ def alg4B3T(lista_bits: list):
 
     #Começo randômico
     iniciaLizador = randint(-1,1)
-    #ultimo_simbolo_lista = iniciaLizador
     for i in range(len(lista_bits)):
         lista4B.append(lista_bits[i])
 
         if(len(lista4B) == 4):
             # Implementação começo randômico
             # Calcula a diparidade também
-            contador = contador + lista3T[-1] if len(lista3T) > 0 and i > 0 else iniciaLizador
+            if len(lista3T) == 0:
+                contador = iniciaLizador
+            else:
+                for i in range(len(lista3T)):
+                    contador += lista3T[i]
             simbolo = tabela_Jesse(lista4B, contador)
-            print(contador)
             lista3T.append(simbolo[0])
             lista3T.append(simbolo[1])
             lista3T.append(simbolo[2])
@@ -33,7 +35,7 @@ def tabela_Jesse(lista_bits: list, contador:int) -> list:
         "0000": [0,-1,1],
         "0001": [-1,1,0],
         "0010": [-1,0,1],
-        "0011": [1,-1,1] if contador  < 0  else [-1,1,-1],'''ultimo_simbolo_lista != 1 or ultimo_simbolo_lista != -1'''
+        "0011": [1,-1,1] if contador  < 0  else [-1,1,-1],
         "0100": [0,1,1] if contador < 0 else [0,-1,-1],
         "0101": [0,1,0] if contador < 0 else [0,-1,0],
         "0110": [0,0,1] if contador < 0 else [0,0,-1],
@@ -49,7 +51,6 @@ def tabela_Jesse(lista_bits: list, contador:int) -> list:
     }
 
     for chave in chaves_simbolos:
-        #if chaves_simbolos[chave] == lista_simbolos:
         if chave == lista_simbolos:
             return chaves_simbolos[chave]
 
