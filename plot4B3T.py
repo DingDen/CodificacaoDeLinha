@@ -5,7 +5,7 @@ def alg4B3T(lista_bits: list):
     lista4B = []
     simbolo = []
     lista3T = []
-
+    contador = 0
     #Começo randômico
     iniciaLizador = randint(-1,1)
     for i in range(len(lista_bits)):
@@ -14,11 +14,19 @@ def alg4B3T(lista_bits: list):
         if(len(lista4B) == 4):
             # Implementação começo randômico
             # Calcula a diparidade também
-            if len(lista3T) == 0:
-                contador = iniciaLizador
+            soma_simbolo = 0
+            for i in range(len(lista3T)-1):
+                soma_simbolo += lista3T[i]
+            if len(lista3T) > 0:
+                contador = soma_simbolo
             else:
-                for i in range(len(lista3T)):
-                    contador += lista3T[i]
+                contador = iniciaLizador
+            #if len(lista3T) == 0:
+            #    contador = iniciaLizador
+            #else:
+            #    for i in range(len(lista3T)-1):
+            #        contador += lista3T[i]
+                #contador = contador - lista3T[-1]
             simbolo = tabela_Jesse(lista4B, contador)
             lista3T.append(simbolo[0])
             lista3T.append(simbolo[1])
