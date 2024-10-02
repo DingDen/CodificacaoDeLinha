@@ -21,12 +21,7 @@ def alg4B3T(lista_bits: list):
                 contador = soma_simbolo
             else:
                 contador = iniciaLizador
-            #if len(lista3T) == 0:
-            #    contador = iniciaLizador
-            #else:
-            #    for i in range(len(lista3T)-1):
-            #        contador += lista3T[i]
-                #contador = contador - lista3T[-1]
+
             simbolo = tabela_Jesse(lista4B, contador)
             lista3T.append(simbolo[0])
             lista3T.append(simbolo[1])
