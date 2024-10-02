@@ -5,7 +5,8 @@ def alg4B3T(lista_bits: list):
     lista4B = []
     simbolo = []
     lista3T = []
-    contador = 0
+    disparidade_DC = 0
+    
     #Começo randômico
     iniciaLizador = randint(-1,1)
     for i in range(len(lista_bits)):
@@ -14,19 +15,21 @@ def alg4B3T(lista_bits: list):
         if(len(lista4B) == 4):
             # Implementação começo randômico
             # Calcula a diparidade também
-            soma_simbolo = 0
-            for i in range(len(lista3T)-1):
-                soma_simbolo += lista3T[i]
-            if len(lista3T) > 0:
-                contador = soma_simbolo
+            if len(lista3T) == 0 or disparidade_DC == 0:
+                simbolo = tabela_Jesse(lista4B, iniciaLizador)
             else:
-                contador = iniciaLizador
-
-            simbolo = tabela_Jesse(lista4B, contador)
+                simbolo = tabela_Jesse(lista4B, disparidade_DC)
+            
             lista3T.append(simbolo[0])
             lista3T.append(simbolo[1])
             lista3T.append(simbolo[2])
             lista3T.append(simbolo[2]) # Extensão para plotagem
+            
+            soma_simbolo = 0
+            for sinal in simbolo:
+                soma_simbolo += sinal
+            disparidade_DC += soma_simbolo
+            
             lista4B = []
             simbolo = []
 
